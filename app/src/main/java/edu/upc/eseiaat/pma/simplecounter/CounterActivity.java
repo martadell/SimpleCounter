@@ -1,5 +1,7 @@
 package edu.upc.eseiaat.pma.simplecounter;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +36,24 @@ public class CounterActivity extends AppCompatActivity {
         number = String.valueOf(num);
         txt_number.setText(number);
 
+    }
+
+    public void clicexit (View v) {
+        Button btn = (Button) v;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.close);
+        builder.setMessage(R.string.wannago);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();}});
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel(); }});
+
+        builder.create().show();
     }
 
     }
