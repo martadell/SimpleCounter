@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,17 +12,35 @@ import android.widget.TextView;
 public class CounterActivity extends AppCompatActivity {
 
     TextView txt_number;
+    int num;
+
+    public static final String NUM = "num";
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt(NUM, num);}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
-        txt_number = (TextView) findViewById(R.id.txt_number);}
+        txt_number = (TextView) findViewById(R.id.txt_number);
+
+        if(savedInstanceState == null) {
+            txt_number.setText("2"); }
+
+        else {
+            Bundle state = savedInstanceState;
+            String number = String.valueOf(Integer.valueOf(state.getInt(NUM)));
+            txt_number.setText(number);
+            }}
 
    public void clicplus (View v) {
        Button btn = (Button) v;
        String number = txt_number.getText().toString();
-       int num = Integer.parseInt(number);
+       num = Integer.parseInt(number);
        num = num + 1;
        number = String.valueOf(num);
        txt_number.setText(number);
@@ -31,7 +50,7 @@ public class CounterActivity extends AppCompatActivity {
     public void clicminus (View v) {
         Button btn = (Button) v;
         String number = txt_number.getText().toString();
-        int num = Integer.parseInt(number);
+        num = Integer.parseInt(number);
         num = num - 1;
         number = String.valueOf(num);
         txt_number.setText(number);
