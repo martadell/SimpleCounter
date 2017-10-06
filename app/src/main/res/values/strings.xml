@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">SimpleCounter</string>
+    <string name="app_name" translatable="false">SimpleCounter</string>
     <string name="exit">Exit</string>
+    <string name="wannago">Do you want to close de app?</string>
+    <string name="close">Closing Simple Counter</string>
+    <string name="yes">Yes</string>
+    <string name="no">No, stay</string>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,28 +12,29 @@
         android:id="@+id/btn_minus"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_alignBottom="@+id/btn_plus"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginStart="60dp"
         android:onClick="clicminus"
-        android:text="-" />
+        android:text="-"
+        android:layout_below="@+id/txt_number"
+        android:layout_toLeftOf="@+id/txt_number"
+        android:layout_toStartOf="@+id/txt_number"
+        android:layout_marginLeft="75dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="125dp" />
 
     <Button
         android:id="@+id/btn_plus"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="100dp"
         android:onClick="clicplus"
         android:text="+"
-        tools:layout_editor_absoluteX="200dp"
-        tools:layout_editor_absoluteY="300dp"
-        android:layout_above="@+id/btn_exit"
+        android:layout_below="@+id/btn_minus"
         android:layout_toRightOf="@+id/txt_number"
         android:layout_toEndOf="@+id/txt_number"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp" />
+        android:layout_marginRight="75dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="125dp" />
 
     <Button
         android:id="@+id/btn_exit"
@@ -43,7 +44,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:onClick="clicexit"
-        android:text="@string/exit" />
+        android:text="@string/exit"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
 
     <TextView
         android:id="@+id/txt_number"
@@ -51,8 +56,16 @@
         android:layout_height="wrap_content"
         android:text="2"
         android:textSize="100sp"
-        android:layout_marginBottom="54dp"
-        android:layout_above="@+id/btn_minus"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="140dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="140dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.355" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
