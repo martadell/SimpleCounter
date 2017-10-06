@@ -26,5 +26,15 @@ public class CounterActivity extends AppCompatActivity {
 
     }
 
+    public void clicminus (View v) {
+        Button btn = (Button) v;
+        String number = txt_number.getText().toString();
+        int num = Integer.parseInt(number);
+        num = num - 1;
+        number = String.valueOf(num);
+        txt_number.setText(number);
+
+    }
+
     }
 
